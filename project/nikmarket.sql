@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 12 2018 г., 17:58
+-- Время создания: Фев 15 2018 г., 11:01
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -128,21 +128,21 @@ CREATE TABLE `goods` (
 
 INSERT INTO `goods` (`g_id`, `title`, `description`, `price`, `visits`, `photo`) VALUES
 (9, 'Black coat', 'Some text', '118.00', 0, '15184456526c94bdbbb92cd609b724b0cd7c639a5d.jpg'),
-(10, 'Brown coat', 'NULL', '120.00', 0, '15184457081da6fc1a0015bbb2186fefca37d54da4.jpg'),
-(11, 'Blue jacket', 'NULL', '202.37', 0, '1518445732c5dc367dda4b02a2d8101108d163dd5a.jpg'),
-(12, 'Gray T-shirt', 'NULL', '30.00', 0, '1518445750982fc684ddfbc90f3097470c23740bba.jpg'),
-(13, 'Blue jacket', 'NULL', '41.00', 0, '1518445766550a9afd93e9638b631a09f6e9c4f635.jpg'),
-(14, 'Autumn set', 'NULL', '177.77', 0, '1518445795408509e2eba3987e94dd2dc47fa76668.jpg'),
-(15, 'Light blue suit', 'NULL', '111.00', 0, '1518445830fa2c13d9d71c9f526c31344b15fcd2e4.jpg'),
-(16, 'Light brown coat', 'NULL', '120.00', 0, '1518445849ba6a8abdff041b3ba1313798fc5afe24.jpg'),
-(17, 'Blue T-shirt', 'NULL', '51.00', 0, '151844586803307e5e0c66ceee30ffcb8781322296.jpg'),
-(18, 'Black women\'s suit', 'NULL', '114.75', 0, '15184459279424dec6725359a47f972f6e90057eb2.jpg'),
-(19, 'Brown black dress', 'NULL', '69.00', 0, '15184459430b402eecb154b57523c23885cb20e551.jpg'),
-(20, 'Summer set', 'NULL', '211.30', 0, '1518445963dedf9b778fbccdce63369142ae290dbd.jpg'),
-(21, 'DG set', 'NULL', '117.00', 0, '1518445978654df82b8a29939162a780e4ca0920f0.jpg'),
-(22, 'Orange dress', 'NULL', '112.00', 0, '15184460274d3c716934fb6d501cd6134f30beecbd.jpg'),
-(23, 'Flowered dress', 'NULL', '71.00', 0, '15184460413f7e4fe7498b490f1bc3dadc9067fbaf.jpg'),
-(24, 'Zizi dress', 'NULL', '40.00', 0, '1518446056c6b4bd5bd21ea2366a9e5a40f81450ab.jpg');
+(10, 'Brown coat', NULL, '120.00', 0, '15184457081da6fc1a0015bbb2186fefca37d54da4.jpg'),
+(11, 'Blue jacket', NULL, '202.37', 0, '1518445732c5dc367dda4b02a2d8101108d163dd5a.jpg'),
+(12, 'Gray T-shirt', NULL, '30.00', 0, '1518445750982fc684ddfbc90f3097470c23740bba.jpg'),
+(13, 'Blue jacket', NULL, '41.00', 0, '1518445766550a9afd93e9638b631a09f6e9c4f635.jpg'),
+(14, 'Autumn set', NULL, '177.77', 0, '1518445795408509e2eba3987e94dd2dc47fa76668.jpg'),
+(15, 'Light blue suit', NULL, '111.00', 0, '1518445830fa2c13d9d71c9f526c31344b15fcd2e4.jpg'),
+(16, 'Light brown coat', NULL, '120.00', 0, '1518445849ba6a8abdff041b3ba1313798fc5afe24.jpg'),
+(17, 'Blue T-shirt', NULL, '51.00', 0, '151844586803307e5e0c66ceee30ffcb8781322296.jpg'),
+(18, 'Black women\'s suit', NULL, '114.75', 0, '15184459279424dec6725359a47f972f6e90057eb2.jpg'),
+(19, 'Brown black dress', NULL, '69.00', 0, '15184459430b402eecb154b57523c23885cb20e551.jpg'),
+(20, 'Summer set', NULL, '211.30', 0, '1518445963dedf9b778fbccdce63369142ae290dbd.jpg'),
+(21, 'DG set', NULL, '117.00', 0, '1518445978654df82b8a29939162a780e4ca0920f0.jpg'),
+(22, 'Orange dress', NULL, '112.00', 0, '15184460274d3c716934fb6d501cd6134f30beecbd.jpg'),
+(23, 'Flowered dress', NULL, '71.00', 0, '15184460413f7e4fe7498b490f1bc3dadc9067fbaf.jpg'),
+(24, 'Zizi dress', NULL, '40.00', 0, '1518446056c6b4bd5bd21ea2366a9e5a40f81450ab.jpg');
 
 -- --------------------------------------------------------
 
