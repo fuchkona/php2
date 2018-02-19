@@ -9,7 +9,14 @@
 namespace classes;
 
 
-class Good
+abstract class Good
 {
+
+    /**
+     * @return float
+     */
+    public abstract function getCost() : float ;
+
+    public abstract function incCount(int $quantity = 1);
 
 }
