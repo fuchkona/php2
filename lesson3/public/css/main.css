@@ -37,4 +37,29 @@ hr {
     border: 3px solid lightblue;
     border-radius: 15px; }
 
+.text-center {
+  text-align: center; }
+
+.margin-vertical-small {
+  margin: 5px 0; }
+.margin-vertical-middle {
+  margin: 10px 0; }
+.margin-vertical-big {
+  margin: 15px 0; }
+.margin-horisontal-small {
+  margin: 0 5px; }
+.margin-horisontal-middle {
+  margin: 0 10px; }
+.margin-horisontal-big {
+  margin: 0 15px; }
+.margin-both-small {
+  margin: 5px 5px; }
+.margin-both-middle {
+  margin: 10px 10px; }
+.margin-both-big {
+  margin: 15px 10px; }
+
+.img-thumbnail {
+  border-radius: 3em; }
+
 /*# sourceMappingURL=main.css.map */

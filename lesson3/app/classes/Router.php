@@ -47,6 +47,22 @@ class Router
     }
 
     /**
+     * @param mixed $current_page
+     */
+    public static function setCurrentPage($current_page)
+    {
+        self::$current_page = $current_page;
+    }
+
+    /**
+     * @param string $layout
+     */
+    public static function setLayout($layout)
+    {
+        self::$layout = $layout;
+    }
+
+    /**
      * @return string
      */
     public static function getLayout()

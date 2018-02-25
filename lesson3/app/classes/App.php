@@ -9,6 +9,8 @@
 
 namespace app\classes;
 
+use app\controllers\Controller;
+
 class App
 {
 
@@ -16,9 +18,13 @@ class App
     {
         Router::init();
 
-        $controller = [ 'app\\controllers\\' . ucfirst(Router::getLayout()) . 'Controller', Router::getCurrentPage() . 'Action'];
+        $controller = ['app\\controllers\\' . ucfirst(Router::getLayout()) . 'Controller', Router::getCurrentPage() . 'Action'];
 
-        $controller();
+        if (is_callable($controller)) {
+            $controller();
+        } else {
+            Controller::error404();
+        }
 
     }
 
