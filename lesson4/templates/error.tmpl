@@ -6,14 +6,45 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lesson 3 by Nik</title>
+    <link href="/css/bootstrap-reboot.min" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-    <h1>Добро пожаловать в нашу галерею</h1>
-    <hr>
-    {% include 'error/' ~ page ~ '.tmpl' %}
+    <div class="header">
+        <nav class="navbar navbar-nik navbar-light navbar-expand-lg">
+            <a href="/" class="navbar-brand mb-0 h1"><span class="fa fa-shopping-basket"></span> Магазин на
+                окраине</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbarNav"
+                    aria-controls="mainNavbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/goods/">Товары</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="content-body">
+        {% include 'error/' ~ page ~ '.tmpl' %}
+    </div>
+    <div class="footer">
+
+    </div>
 </div>
+<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="/js/fontawesome.min.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>
