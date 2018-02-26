@@ -21,7 +21,11 @@ class App
         $controller = ['app\\controllers\\' . ucfirst(Router::getLayout()) . 'Controller', Router::getCurrentPage() . 'Action'];
 
         if (is_callable($controller)) {
-            $controller();
+            try {
+                $controller();
+            } catch (\Exception $e) {
+                Controller::error($e->getCode(), $e->getMessage(), $e->getTraceAsString());
+            }
         } else {
             Controller::error404();
         }

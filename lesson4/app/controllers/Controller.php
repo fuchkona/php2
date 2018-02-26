@@ -20,9 +20,18 @@ abstract class Controller
         Twig::render();
     }
 
-    public static function error404() {
+    public static function error404()
+    {
+        self::error(404, 'Sorry. Page not found!');
+    }
+
+    public static function error($id, $title, $msg = null)
+    {
         Router::setLayout('error');
-        Router::setCurrentPage('404');
+        Router::setCurrentPage('index');
+        Router::setParam('id', $id);
+        Router::setParam('title', $title);
+        Router::setParam('msg', $msg);
         self::render();
     }
 

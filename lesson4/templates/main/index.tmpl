@@ -1,7 +1,11 @@
 <div class="gallery">
+    {% if goods|length > 0 %}
     {% for good in goods %}
         <p>{{ good.title }}</p>
         <p>{{ good.description }}</p>
         <p>{{ good.price }} $</p>
     {% endfor %}
+    {% else %}
+        <p>Товар не найден</p>
+    {% endif %}
 </div>

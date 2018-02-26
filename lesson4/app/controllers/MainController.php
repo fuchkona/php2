@@ -10,13 +10,14 @@
 namespace app\controllers;
 
 use app\classes\DB;
+use app\classes\Good;
 use app\classes\Router;
 
 class MainController extends Controller
 {
 
     public static function indexAction() {
-        Router::setParam('goods', DB::getRows("SELECT * FROM `goods`"));
+        Router::setParam('goods', Good::getAll());
         self::render();
     }
 
