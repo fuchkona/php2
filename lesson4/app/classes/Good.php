@@ -35,9 +35,9 @@ class Good
         }
     }
 
-    public static function getAll() {
+    public static function getAll($sql = null) {
         $goods = [];
-        $data = DB::getRows("SELECT * FROM `goods`;");
+        $data = DB::getRows($sql ? $sql : "SELECT * FROM `goods`;");
         if ($data && count($data)) {
             foreach ($data as $row) {
                 $good = new self();

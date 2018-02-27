@@ -15,7 +15,7 @@ class Router
     private static $params = [];
     private static $layout = 'main';
 
-    private static $layouts = ['admin'];
+    private static $layouts = ['admin', 'ajax'];
 
     private function __construct()
     {

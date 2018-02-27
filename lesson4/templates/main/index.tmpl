@@ -1,11 +1,69 @@
-<div class="gallery">
-    {% if goods|length > 0 %}
-    {% for good in goods %}
-        <p>{{ good.title }}</p>
-        <p>{{ good.description }}</p>
-        <p>{{ good.price }} $</p>
-    {% endfor %}
-    {% else %}
-        <p>Товар не найден</p>
-    {% endif %}
+<div class="goods">
+    <div class="row" id="goodsContainer">
+        {% if goods|length > 0 %}
+            {% for good in goods %}
+                <div class="col-6 col-md-4 col-lg-3 p-1">
+                    <div class="card">
+                        <img class="card-img-top" src="/images/small/{{ good.img }}">
+                        <h5 class="card-header">
+                            {{ good.title }}
+                        </h5>
+                        <div class="card-body">
+                            <p class="card-text">
+                                {{ good.description }}
+                            </p>
+                            <h6 class="card-subtitle">
+                                Цена: {{ good.price }}$
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Товары не найдены</p>
+        {% endif %}
+    </div>
+    <div class="row justify-content-center">
+        <button id="loadExtraGoods" onclick="loadExtraGoods()" class="btn btn-primary">Загрузить еще товары</button>
+    </div>
+    <script type="text/javascript">
+        var goods_position = 4;
+        var goods_count = 4;
+
+        function loadExtraGoods() {
+            $.ajax({
+                type: "POST",
+                url: "/ajax/getgoods",
+                data: "position=" + goods_position + "&count=" + goods_count,
+                success: function (msg) {
+                    var goods = $.parseJSON(msg);
+                    if (goods.length > 0) {
+                        for (var i = 0; i < goods.length; i++) {
+                            var $container = $("<div class='col-6 col-md-4 col-lg-3 p-1'></div>");
+                            var $card = $("<div class='card'></div>");
+                            $card.appendTo($container);
+                            var $cardImg = $("<img class='card-img-top'>");
+                            $cardImg.attr('src', "/images/small/" + goods[i].img);
+                            $cardImg.appendTo($card);
+                            var $cardHeader = $("<h5 class='card-header'></h5>");
+                            $cardHeader.text(goods[i].title);
+                            $cardHeader.appendTo($card);
+                            var $cardBody = $("<div class='card-body'></div>");
+                            $cardBody.appendTo($card);
+                            var $cardDescription = $("<p class='card-text'></p>");
+                            $cardDescription.text(goods[i].description);
+                            $cardDescription.appendTo($cardBody);
+                            var $cardPrice = $("<h6 class='card-subtitle'></h6>");
+                            $cardPrice.text("Цена: " + goods[i].price + "$");
+                            $cardPrice.appendTo($cardBody);
+                            $container.appendTo($("#goodsContainer"));
+                        }
+                    } else {
+                        $("#loadExtraGoods").remove();
+                    }
+                    goods_position += goods_count;
+                }
+            });
+        }
+    </script>
 </div>

@@ -17,11 +17,12 @@ class MainController extends Controller
 {
 
     public static function indexAction() {
-        Router::setParam('goods', Good::getAll());
+        Router::setParam('goods', Good::getAll("SELECT * FROM `goods` LIMIT 4;"));
         self::render();
     }
 
-    public static function imageAction() {
+    public static function goodsAction() {
+        Router::setParam('goods', Good::getAll());
         self::render();
     }
 
