@@ -23,7 +23,7 @@ class Twig
 
         Router::setParam('page', Router::getCurrentPage());
 
-        echo $template->render(Router::getParams());
+        echo $template->render(array_merge(Router::getParams(), ['authorized_user' => App::getUser()]));
     }
 
 }

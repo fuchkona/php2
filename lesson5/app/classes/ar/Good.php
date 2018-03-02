@@ -6,49 +6,17 @@
  * Time: 19:50
  */
 
-namespace app\classes;
+namespace app\classes\ar;
 
+use app\classes\ActiveRecord;
 
-class Good
+class Good extends ActiveRecord
 {
 
-    private $id;
-    private $title;
-    private $description;
-    private $price;
-
-    public function __construct(int $id = null)
-    {
-        $this->id = $id;
-        $this->load();
-    }
-
-    public function load()
-    {
-        if ($this->id) {
-            $data = DB::getRow("SELECT * FROM `goods` WHERE `id` = ?;", [$this->id]);
-            if ($data && count($data)) {
-                foreach ($data as $key => $value) {
-                    $this->$key = $value;
-                }
-            }
-        }
-    }
-
-    public static function getAll($sql = null) {
-        $goods = [];
-        $data = DB::getRows($sql ? $sql : "SELECT * FROM `goods`;");
-        if ($data && count($data)) {
-            foreach ($data as $row) {
-                $good = new self();
-                foreach ($row as $key => $value) {
-                    $good->$key = $value;
-                }
-                $goods[] = $good;
-            }
-        }
-        return $goods;
-    }
+    public $id;
+    public $title;
+    public $description;
+    public $price;
 
     /**
      * @return int
@@ -113,7 +81,6 @@ class Good
     {
         $this->price = $price;
     }
-
 
 
 }

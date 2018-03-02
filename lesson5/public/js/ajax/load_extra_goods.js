@@ -20,7 +20,10 @@ function loadExtraGoods() {
                     $cardImg.attr('src', "/images/small/" + goods[i].img);
                     $cardImg.appendTo($card);
                     var $cardHeader = $("<h5 class='card-header'></h5>");
-                    $cardHeader.text(goods[i].title);
+                    var $cardHeaderLink = $("<a></a>");
+                    $cardHeaderLink.text(goods[i].title);
+                    $cardHeaderLink.attr('href', '/good/id/' + goods[i].id);
+                    $cardHeaderLink.appendTo($cardHeader);
                     $cardHeader.appendTo($card);
                     var $cardBody = $("<div class='card-body'></div>");
                     $cardBody.appendTo($card);

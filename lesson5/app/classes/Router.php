@@ -37,7 +37,12 @@ class Router
                 self::$params[$path[$i]] = $path[$i + 1];
             }
         }
+
+        foreach ($_POST as $key => $value) {
+            self::$params['p_' . $key] = $value;
+        }
     }
+
     /**
      * @return mixed
      */
@@ -78,8 +83,16 @@ class Router
         return self::$params;
     }
 
-    public static function setParam($key, $value) {
-        self::$params[$key] = $value;
+    public static function isParamExist($key) {
+        return array_key_exists($key, self::$params);
+    }
+
+    public static function setParam($key, $value)
+    {
+        $used = ['authorized_user'];
+        if (!in_array($key, $used)) {
+            self::$params[$key] = $value;
+        }
     }
 
     public static function getParam($key)

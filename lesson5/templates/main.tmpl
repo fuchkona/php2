@@ -28,6 +28,23 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/goods/">Товары</a>
                     </li>
+                    {% if authorized_user %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile/">Личный кабинет</a>
+                        </li>
+                        <li class="nav-item">
+                            <form method="post">
+                                <button name="logout" class="btn btn-link nav-link" type="submit">Выйти</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/signin/">Авторизация</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/signup/">Регистрация</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>

@@ -5,11 +5,9 @@
                 <div class="col-6 col-md-4 col-lg-3 p-1">
                     <div class="card">
                         <img class="card-img-top" src="/images/small/{{ good.img }}" alt="Card image cap">
-                        <div class="card-header">
-                            <h5 class="card-title">
-                                {{ good.title }}
-                            </h5>
-                        </div>
+                        <h5 class="card-header">
+                            <a href="/good/id/{{ good.id }}">{{ good.title }}</a>
+                        </h5>
                         <div class="card-body">
                             <p class="card-text">
                                 {{ good.description }}

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 define('HOME', __DIR__ );
 
 spl_autoload_register(function ($className) {
