@@ -1,0 +1,12 @@
+{
+    "name": "fuchkona/lesson3",
+    "authors": [
+        {
+            "name": "Fuchko Nikita",
+            "email": "fuchko.nikita@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^2.0"
+    }
+}

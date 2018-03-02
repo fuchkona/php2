@@ -1,0 +1,29 @@
+<div class="goods">
+    <div class="row" id="goodsContainer">
+        {% if goods|length > 0 %}
+            {% for good in goods %}
+                <div class="col-6 col-md-4 col-lg-3 p-1">
+                    <div class="card">
+                        <img class="card-img-top" src="/images/small/{{ good.img }}">
+                        <h5 class="card-header">
+                            {{ good.title }}
+                        </h5>
+                        <div class="card-body">
+                            <p class="card-text">
+                                {{ good.description }}
+                            </p>
+                            <h6 class="card-subtitle">
+                                Цена: {{ good.price }}$
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Товары не найдены</p>
+        {% endif %}
+    </div>
+    <div class="row justify-content-center">
+        <button id="loadExtraGoods" onclick="loadExtraGoods()" class="btn btn-primary">Загрузить еще товары</button>
+    </div>
+</div>

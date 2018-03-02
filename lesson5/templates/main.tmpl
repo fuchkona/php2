@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 5 by Nik</title>
+    {% for css_file in css_files %}
+        <link rel="stylesheet" href="{{ css_file }}">
+    {% endfor %}
+</head>
+<body>
+<div class="container container-nik">
+    <div class="header">
+        <nav class="navbar navbar-nik navbar-light navbar-expand-lg">
+            <a href="/" class="navbar-brand mb-0 h1"><span class="fa fa-shopping-basket"></span> Магазин на
+                окраине</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbarNav"
+                    aria-controls="mainNavbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/goods/">Товары</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="content-body">
+        {% include 'main/' ~ page ~ '.tmpl' %}
+    </div>
+    <div class="footer">
+        <p class="m-0 h6">Made by Nik</p>
+    </div>
+</div>
+{% for js_file in js_files %}
+    <script type="text/javascript" src="{{ js_file }}"></script>
+{% endfor %}
+</body>
+</html>
