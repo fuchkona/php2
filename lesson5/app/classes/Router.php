@@ -12,10 +12,11 @@ namespace app\classes;
 class Router
 {
     private static $current_page;
-    private static $params = [];
     private static $layout = 'main';
 
     private static $layouts = ['admin', 'ajax'];
+
+    private static $settingsPath;
 
     private function __construct()
     {
@@ -30,17 +31,8 @@ class Router
             $path = array_slice($path, 1);
         }
         self::$current_page = $path[1] ? $path[1] : 'index';
-        $path = array_slice($path, 2);
+        self::$settingsPath = array_slice($path, 2);
 
-        if (count($path) > 1) {
-            for ($i = 0; $i < count($path) - 1; $i += 2) {
-                self::$params[$path[$i]] = $path[$i + 1];
-            }
-        }
-
-        foreach ($_POST as $key => $value) {
-            self::$params['p_' . $key] = $value;
-        }
     }
 
     /**
@@ -78,29 +70,9 @@ class Router
     /**
      * @return mixed
      */
-    public static function getParams()
+    public static function getSettingsPath()
     {
-        return self::$params;
-    }
-
-    public static function isParamExist($key) {
-        return array_key_exists($key, self::$params);
-    }
-
-    public static function setParam($key, $value)
-    {
-        $used = ['authorized_user'];
-        if (!in_array($key, $used)) {
-            self::$params[$key] = $value;
-        }
-    }
-
-    public static function getParam($key)
-    {
-        if (isset(self::$params[$key]) && self::$params[$key]) {
-            return self::$params[$key];
-        }
-        return null;
+        return self::$settingsPath;
     }
 
 }

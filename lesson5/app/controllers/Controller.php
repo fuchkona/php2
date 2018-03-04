@@ -9,31 +9,32 @@
 namespace app\controllers;
 
 use app\classes\Router;
+use app\classes\Settings;
 use app\classes\Twig;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 
 abstract class Controller
 {
-    private static $css_files = [
-        '/css/bootstrap-reboot.min',
-        '/css/bootstrap.min.css',
-        '/css/bootstrap-grid.min.css',
-        '/css/fontawesome-all.min.css',
-        '/css/main.css'
+    protected static $css_files = [
+        '/css/normalize.css',
+        '/css/main_new.css',
+        '/css/font-awesome.min.css',
+        '/css/nouislider.min.css',
     ];
-    private static $js_files = [
-        '/js/jquery-3.3.1.min.js',
-        '/js/bootstrap.min.js',
-        '/js/bootstrap.bundle.min.js',
-        '/js/fontawesome.min.js',
-        '/js/main.js'
+
+    protected static $js_files = [
+        '/js/jquery-3.2.1.min.js',
+        '/js/nouislider.min.js',
+        '/js/main.js',
+        '/js/classes/Container.js',
+        '/js/classes/Cart.js'
     ];
 
     public static function render()
     {
-        Router::setParam('css_files', self::$css_files);
-        Router::setParam('js_files', self::$js_files);
+        Settings::set('css_files', static::$css_files);
+        Settings::set('js_files', static::$js_files);
         Twig::render();
     }
 
@@ -44,11 +45,10 @@ abstract class Controller
 
     public static function error($id, $title, $msg = null)
     {
-        Router::setLayout('main');
         Router::setCurrentPage('error');
-        Router::setParam('id', $id);
-        Router::setParam('title', $title);
-        Router::setParam('msg', $msg);
+        Settings::set('id', $id);
+        Settings::set('title', $title);
+        Settings::set('msg', $msg);
         self::render();
     }
 

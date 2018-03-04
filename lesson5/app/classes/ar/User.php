@@ -18,8 +18,10 @@ class User extends ActiveRecord
     public $name;
     public $login;
     public $password;
+    public $role;
 
-    public function loadByLogin($login) {
+    public function loadByLogin($login)
+    {
         $this->loadBy("`login` LIKE ?", [$login]);
     }
 
@@ -107,5 +109,14 @@ class User extends ActiveRecord
         $this->name = $name;
     }
 
+    public function isUser()
+    {
+        return $this->role == 0 || $this->isAdmin();
+    }
+
+    public function isAdmin()
+    {
+        return $this->role == 255;
+    }
 
 }

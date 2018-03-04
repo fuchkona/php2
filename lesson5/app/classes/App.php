@@ -9,20 +9,22 @@
 
 namespace app\classes;
 
-use app\classes\ar\Auth;
-use app\classes\ar\User;
+use app\components\traits\SingletonTrait;
 use app\controllers\Controller;
 
 class App
 {
+    use SingletonTrait;
+
     private static $user;
 
     public static function init()
     {
         Router::init();
-        self::userInit();
+        Settings::init(Router::getSettingsPath());
+        self::$user = AppUser::init();
 
-        $controller = ['app\\controllers\\' . ucfirst(Router::getLayout()) . 'Controller', Router::getCurrentPage() . 'Action'];
+        $controller = ['app\\controllers\\' . ucfirst(Router::getLayout()) . 'Controller', str_replace('-', '_', Router::getCurrentPage()) . 'Action'];
 
         if (is_callable($controller)) {
             try {
@@ -32,25 +34,6 @@ class App
             }
         } else {
             Controller::error404();
-        }
-
-    }
-
-    private static function userInit() {
-        if (isset($_SESSION['auth_secret'])) {
-            $auth = new Auth();
-            $auth->loadBySecret($_SESSION['auth_secret']);
-            if (Router::isParamExist('p_logout')) {
-                $auth->clear();
-                header('Location: /');
-            }
-            if ($auth) {
-                if ($auth->verifyAgent($_SERVER['HTTP_USER_AGENT'])) {
-                    self::$user = new User($auth->u_id);
-                } else {
-                    $auth->clear();
-                }
-            }
         }
     }
 

@@ -9,6 +9,7 @@
 namespace app\classes\ar;
 
 use app\classes\ActiveRecord;
+use app\classes\DB;
 
 class Good extends ActiveRecord
 {
@@ -17,6 +18,11 @@ class Good extends ActiveRecord
     public $title;
     public $description;
     public $price;
+
+    public function addToDB()
+    {
+        return $this->id = DB::insert("INSERT INTO `goods`(`title`,`description`,`price`) VALUES (?, ?, ?)", [$this->title, $this->description, $this->price]);
+    }
 
     /**
      * @return int

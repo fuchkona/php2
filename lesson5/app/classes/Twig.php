@@ -21,9 +21,9 @@ class Twig
 
         $template = $twig->load(Router::getLayout() .'.tmpl');
 
-        Router::setParam('page', Router::getCurrentPage());
+        Settings::set('page', Router::getCurrentPage());
 
-        echo $template->render(array_merge(Router::getParams(), ['authorized_user' => App::getUser()]));
+        echo $template->render(array_merge(Settings::getSettings(), ['authorized_user' => App::getUser()]));
     }
 
 }

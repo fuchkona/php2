@@ -5,57 +5,27 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lesson 5 by Nik</title>
+    <title>Nik's market</title>
+    <link rel="shortcut icon" href="/images/logo.png" type="image/png">
     {% for css_file in css_files %}
         <link rel="stylesheet" href="{{ css_file }}">
     {% endfor %}
 </head>
 <body>
-<div class="container container-nik">
-    <div class="header">
-        <nav class="navbar navbar-nik navbar-light navbar-expand-lg">
-            <a href="/" class="navbar-brand mb-0 h1"><span class="fa fa-shopping-basket"></span> Магазин на
-                окраине</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbarNav"
-                    aria-controls="mainNavbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNavbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Главная</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/goods/">Товары</a>
-                    </li>
-                    {% if authorized_user %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="/profile/">Личный кабинет</a>
-                        </li>
-                        <li class="nav-item">
-                            <form method="post">
-                                <button name="logout" class="btn btn-link nav-link" type="submit">Выйти</button>
-                            </form>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="/signin/">Авторизация</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/signup/">Регистрация</a>
-                        </li>
-                    {% endif %}
-                </ul>
-            </div>
-        </nav>
+<div class="wrapper">
+    {% include 'main/header.tmpl' %}
+    {% include 'main/top_navigation.tmpl' %}
+    <!-- Content -->
+    <div>
+        {% include 'main/pages/' ~ page ~ '.tmpl' %}
     </div>
-    <div class="content-body">
-        {% include 'main/' ~ page ~ '.tmpl' %}
-    </div>
-    <div class="footer">
-        <p class="m-0 h6">Made by Nik</p>
-    </div>
+    {% include 'main/subscribe.tmpl' %}
+    {% include 'main/bottom_navigation.tmpl' %}
+    {% include 'main/footer.tmpl' %}
 </div>
+{% include 'main/browse_categories.tmpl' %}
+{% include 'main/main_cart.tmpl' %}
+{% include 'main/my_account.tmpl' %}
 {% for js_file in js_files %}
     <script type="text/javascript" src="{{ js_file }}"></script>
 {% endfor %}

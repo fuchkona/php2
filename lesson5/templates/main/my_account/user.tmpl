@@ -1,0 +1,8 @@
+<h3 class="text-title">Welcome <span class="first-letter-up">{{ authorized_user.name }}</span></h3>
+{% if authorized_user.isAdmin %}
+    <a class="btn btn-white btn-block" href="/admin">Admin Panel</a>
+{% endif %}
+<a class="btn btn-white btn-block" href="/profile">Go to profile</a>
+<form method="post">
+    <button class="btn btn-red btn-block" name="logout" type="submit">Logout</button>
+</form>
