@@ -8,9 +8,11 @@
 
 namespace app\controllers;
 
+use app\classes\App;
 use app\classes\Router;
 use app\classes\Settings;
 use app\classes\Twig;
+use app\exceptions\AccessException;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 
@@ -76,6 +78,13 @@ abstract class Controller
     public static function appendJsFiles(string $src)
     {
         self::$js_files[] = $src;
+    }
+
+    public static function mustBeAdmin()
+    {
+        if (!App::getUser() || !App::getUser()->isAdmin()) {
+            throw new AccessException('You do not have access to this page!', 666);
+        }
     }
 
 }

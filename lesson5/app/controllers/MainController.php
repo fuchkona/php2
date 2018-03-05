@@ -27,7 +27,9 @@ class MainController extends Controller
 
     public static function goodAction()
     {
-        Settings::set('good', new Good(Settings::get('id')));
+        $good = new Good(Settings::get('id'));
+        $good->incVisits();
+        Settings::set('good', $good);
         self::render();
     }
 

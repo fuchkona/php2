@@ -18,10 +18,12 @@ class Good extends ActiveRecord
     public $title;
     public $description;
     public $price;
+    public $visits;
+    public $img;
 
     public function addToDB()
     {
-        return $this->id = DB::insert("INSERT INTO `goods`(`title`,`description`,`price`) VALUES (?, ?, ?)", [$this->title, $this->description, $this->price]);
+        return $this->id = DB::insert("INSERT INTO `goods`(`title`,`description`,`price`, `img`) VALUES (?, ?, ?, ?)", [$this->title, $this->description, $this->price, $this->img]);
     }
 
     /**
@@ -86,6 +88,16 @@ class Good extends ActiveRecord
     public function setPrice($price)
     {
         $this->price = $price;
+    }
+
+    public function incVisits()
+    {
+        DB::update('UPDATE `goods` SET `visits` = ? WHERE `id` = ?', [++$this->visits, $this->id]);
+    }
+
+    public function setImg($img)
+    {
+        $this->img = $img;
     }
 
 

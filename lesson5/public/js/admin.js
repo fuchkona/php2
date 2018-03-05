@@ -15,4 +15,26 @@ $(function () {
         $panel.toggleClass('show');
     }
 
+
+    $('a[data-type="btn-good-delete"]').on('click', function () {
+        if (confirm('Are you sure?')) {
+            var $btn = $(this);
+            $.ajax({
+                type: "POST",
+                url: "/ajax/admin-delete-good/",
+                data: {
+                    id: $(this).data('id')
+                },
+                success: function (data) {
+                    if (data !== "error") {
+                        alert(data);
+                        $btn.closest('tr').remove();
+                    }
+                },
+                dataType: 'text'
+            });
+        }
+    })
+
+
 });

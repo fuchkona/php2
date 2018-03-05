@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.3
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 04 2018 г., 17:14
--- Версия сервера: 5.7.19
--- Версия PHP: 7.1.7
+-- Время создания: Мар 05 2018 г., 11:34
+-- Версия сервера: 5.7.20
+-- Версия PHP: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- База данных: `php2l4`
 --
-CREATE DATABASE IF NOT EXISTS `php2l4` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `php2l4`;
 
 -- --------------------------------------------------------
 
@@ -30,7 +28,6 @@ USE `php2l4`;
 -- Структура таблицы `auths`
 --
 
-DROP TABLE IF EXISTS `auths`;
 CREATE TABLE `auths` (
   `id` int(11) NOT NULL,
   `u_id` int(11) NOT NULL,
@@ -44,11 +41,11 @@ CREATE TABLE `auths` (
 --
 
 INSERT INTO `auths` (`id`, `u_id`, `secret`, `time`, `agent`) VALUES
-(49, 1, '$2y$10$NtaoG7IxGE/5FJSNxroq5eBulWAcHtjJWrrWAx0oXuDLC9kXRyuxO', '2018-03-02 13:40:49', '$2y$10$3xZkY1ISoJeK74XfeawGoOj5hF7AT/xV8.fOhcSGTJHz2aP9dEqwe'),
 (52, 1, '$2y$10$nyuBXVj/ixL.Cu0AOvL5.e/dWcc6VObrdQUaicowhOAM/Dkw/hdme', '2018-03-03 06:36:16', '$2y$10$7ajchhKTOSeecA2TExZ3TOWbzr8SKFsF9gwGEtv/SOXPan6LjNe2m'),
 (55, 1, '$2y$10$YxDApFv8gRQR/9nsvyrpO.FG4nkAFH71mSlmuJpuPnec6Za7zSm7K', '2018-03-03 10:47:41', '$2y$10$1e/NcunHIJDPUi8VFxg14OUqB8P7a4J/.dXZsZZ1PcPOdbVOzMzAq'),
 (56, 1, '$2y$10$ezvdsIOeYhoV9nVebY2o5u9GjzchBEg5efKXs5QaFHcBFp4iEdEna', '2018-03-04 07:32:47', '$2y$10$9YX.4B9.GArnbjQcoz2QP.X3vt61JODpvLeDcgOs61.uhNYrz6PC2'),
-(57, 1, '$2y$10$mckJs/6BYHPkSqNy.hGhleBohPySajFSoPitpVR/v61yba9AZ/Wt6', '2018-03-04 13:06:14', '$2y$10$MRA8kA2d09IUDKL8jZcCHuaGs0RQv75qF9Lplt5uCA..kUpp91Fn2');
+(57, 1, '$2y$10$mckJs/6BYHPkSqNy.hGhleBohPySajFSoPitpVR/v61yba9AZ/Wt6', '2018-03-04 13:06:14', '$2y$10$MRA8kA2d09IUDKL8jZcCHuaGs0RQv75qF9Lplt5uCA..kUpp91Fn2'),
+(61, 1, '$2y$10$mvmjHm8n3tjkxIQmcYPepeuBqERZXz9fMC4Wcp3Qtwfw8vPfnQqEm', '2018-03-05 06:05:09', '$2y$10$24NJU/ievLZWwDrWI3vIyeVjv.jzoz8ILclMEyxxjqgaHwhiVrv72');
 
 -- --------------------------------------------------------
 
@@ -56,7 +53,6 @@ INSERT INTO `auths` (`id`, `u_id`, `secret`, `time`, `agent`) VALUES
 -- Структура таблицы `goods`
 --
 
-DROP TABLE IF EXISTS `goods`;
 CREATE TABLE `goods` (
   `id` int(11) NOT NULL,
   `title` varchar(150) NOT NULL,
@@ -71,7 +67,7 @@ CREATE TABLE `goods` (
 --
 
 INSERT INTO `goods` (`id`, `title`, `description`, `price`, `img`, `visits`) VALUES
-(15, 'Black coat', 'Some text', '118.00', '15184456526c94bdbbb92cd609b724b0cd7c639a5d.jpg', 0),
+(15, 'Black coat', 'Some text', '118.00', '15184456526c94bdbbb92cd609b724b0cd7c639a5d.jpg', 1),
 (16, 'Brown coat', '', '120.00', '15184457081da6fc1a0015bbb2186fefca37d54da4.jpg', 0),
 (17, 'Blue jacket', '', '202.37', '1518445732c5dc367dda4b02a2d8101108d163dd5a.jpg', 0),
 (18, 'Gray T-shirt', '', '30.00', '1518445750982fc684ddfbc90f3097470c23740bba.jpg', 0),
@@ -84,10 +80,9 @@ INSERT INTO `goods` (`id`, `title`, `description`, `price`, `img`, `visits`) VAL
 (25, 'Brown black dress', '', '69.00', '15184459430b402eecb154b57523c23885cb20e551.jpg', 0),
 (26, 'Summer set', '', '211.30', '1518445963dedf9b778fbccdce63369142ae290dbd.jpg', 0),
 (27, 'DG set', '', '117.00', '1518445978654df82b8a29939162a780e4ca0920f0.jpg', 0),
-(28, 'Orange dress', '', '112.00', '15184460274d3c716934fb6d501cd6134f30beecbd.jpg', 0),
+(28, 'Orange dress', '', '112.00', '15184460274d3c716934fb6d501cd6134f30beecbd.jpg', 1),
 (29, 'Flowered dress', '', '71.00', '15184460413f7e4fe7498b490f1bc3dadc9067fbaf.jpg', 0),
-(30, 'Zizi dress', '', '40.00', '1518446056c6b4bd5bd21ea2366a9e5a40f81450ab.jpg', 0),
-(31, 'Test', 'Test test test', '117.35', NULL, 0);
+(30, 'Zizi dress', '', '40.00', '1518446056c6b4bd5bd21ea2366a9e5a40f81450ab.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -95,7 +90,6 @@ INSERT INTO `goods` (`id`, `title`, `description`, `price`, `img`, `visits`) VAL
 -- Структура таблицы `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(150) NOT NULL,
@@ -146,17 +140,20 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `auths`
 --
 ALTER TABLE `auths`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+
 --
 -- AUTO_INCREMENT для таблицы `goods`
 --
 ALTER TABLE `goods`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
