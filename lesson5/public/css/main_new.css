@@ -748,9 +748,9 @@ a {
   .products-item > figure {
     margin: 0;
     padding: 0; }
-  .products-item > img {
-    width: 100%;
-    height: 283px; }
+    .products-item > figure > img {
+      max-width: 100%;
+      height: 283px; }
   .products-item-title {
     color: #6f6e6e;
     font-family: Lato, serif;

@@ -10,7 +10,7 @@
 namespace app\controllers;
 
 use app\classes\ar\Good;
-use app\classes\Image;
+use app\classes\UploadImage;
 use app\classes\Settings;
 
 class AdminController extends Controller
@@ -47,8 +47,10 @@ class AdminController extends Controller
             $good->setTitle(Settings::get('p_title'));
             $good->setDescription(Settings::get('p_description'));
             $good->setPrice(Settings::get('p_price'));
-            $img = new Image($_FILES['photo']);
-            $good->setImg($img->save());
+            $img = new UploadImage($_FILES['photo']);
+            if ($img->isOk()) {
+                $good->setImg($img->save());
+            }
             if ($good->addToDB()) {
                 header('Location: /admin/goods/');
                 exit;
@@ -61,7 +63,18 @@ class AdminController extends Controller
     public static function edit_goodAction()
     {
         self::mustBeAdmin();
-        Settings::set('good', new Good(Settings::get('id')));
+        $good = new Good(Settings::get('id'));
+        if (Settings::isExist('p_save-good')) {
+            $good->setTitle(Settings::get('p_title'));
+            $good->setDescription(Settings::get('p_description'));
+            $good->setPrice(Settings::get('p_price'));
+            $img = new UploadImage($_FILES['photo']);
+            if ($img->isOk()) {
+                $good->setImg($img->save());
+            }
+            $good->saveToDB();
+        }
+        Settings::set('good', $good);
         self::render();
     }
 

@@ -48,18 +48,18 @@ abstract class ActiveRecord
 
     public static function getAll($sql = null, $params = [])
     {
-        $goods = [];
+        $array = [];
         $data = DB::getRows($sql ? $sql : self::getSQL(), $params);
         if ($data && count($data)) {
             foreach ($data as $row) {
-                $good = new static();
+                $item = new static();
                 foreach ($row as $key => $value) {
-                    $good->$key = $value;
+                    $item->$key = $value;
                 }
-                $goods[] = $good;
+                $array[] = $item;
             }
         }
-        return $goods;
+        return $array;
     }
 
     private static function getTableName()
