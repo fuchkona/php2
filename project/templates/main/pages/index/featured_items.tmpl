@@ -1,0 +1,24 @@
+<div class="featured-items container content">
+    <div class="featured-items-title">Fetured Items</div>
+    <div class="featured-items-sub-title">Shop for items based on what we featured in this week</div>
+    <div class="featured-items-box box-flex">
+        {% for f_item in featured_items %}
+            <div id="{{ f_item.id }}" class="products-item">
+                <div class="products-item-hover">
+                    <button class="add-to-cart-btn">
+                        <img src="/images/cart-w.png" alt="">
+                        Add to Cart
+                    </button>
+                </div>
+                <figure>
+                    <img src="/images/dproducts/{{ f_item.img }}" alt="">
+                    <figcaption class="products-item-title">{{ f_item.title }}</figcaption>
+                </figure>
+                <div class="products-item-price">${{ f_item.price }}</div>
+            </div>
+        {% endfor %}
+        </div>
+    <div class="featured-items-btn">
+        <a class="btn-red" href="goods">Browse All Product <span class="fa fa-long-arrow-right"></span></a>
+    </div>
+</div>

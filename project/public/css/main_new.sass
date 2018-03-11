@@ -206,6 +206,13 @@ a
     background-color: #f16d7f
     color: #ffffff
 
+.img-small
+  height: 100px
+  transition: transform 0.2s, outline 0.2s
+  &:hover
+    transform: scale(2, 2)
+    transition: transform 0.5s, outline 0.2s
+
 .nav
   > ul
     display: flex
@@ -751,9 +758,9 @@ a
     > figure
       margin: 0
       padding: 0
-    > img
-      width: 100%
-      height: 283px
+      > img
+        max-width: 100%
+        height: 283px
     &-title
       color: #6f6e6e
       font-family: Lato, serif
@@ -1332,6 +1339,12 @@ a
 
 .text-align-left
   text-align: left
+
+.text-align-center
+  text-align: center
+
+.text-align-right
+  text-align: right
 
 .column-50
   width: (100%/2)

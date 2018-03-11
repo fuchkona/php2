@@ -1,0 +1,9 @@
+<div class="container">
+    {% if authorized_user.id %}
+        <h2>Welcome back {{ authorized_user.name }}!</h2>
+        <hr>
+        <p>Your login: {{ authorized_user.login }}</p>
+    {% else %}
+        <h2>You need to login!</h2>
+    {% endif %}
+</div>

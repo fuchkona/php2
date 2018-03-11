@@ -31,7 +31,7 @@ Cart.prototype.render = function () {
             var $title = $('<a />', {
                 class: 'main-cart-good-title',
                 text: tempGood.title,
-                href: '/product/id/' + this.goods[key].g_id
+                href: '/good/id/' + this.goods[key].g_id
             });
             $good.append($title);
 
@@ -85,7 +85,7 @@ Cart.prototype.loadCartItems = function () {
     var self = this;
     if (sessionStorage.getItem('goods') === null) {
         $.get({
-            url: 'js/cart.json',
+            url: '/js/cart.json',
             dataType: 'json',
             context: this,
             success: function (data) {

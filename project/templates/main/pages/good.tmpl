@@ -1,0 +1,11 @@
+{% include 'main/pages/common/top_article.tmpl' %}
+{% if good %}
+    {% include 'main/pages/good/slider.tmpl' %}
+    {% include 'main/pages/good/body.tmpl' %}
+    {% include 'main/pages/good/others.tmpl' %}
+{% else %}
+    <div class="container">
+        <p>Product not found!</p>
+    </div>
+{% endif %}
+

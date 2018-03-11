@@ -1,11 +1,14 @@
 <?php
-
-define("HOME", __DIR__);
-
-spl_autoload_register(function ($class_name) {
-    require_once HOME .  '\\' . $class_name . '.php';
-});
+use app\classes\App;
 
 session_start();
 
-\engine\classes\App::init();
+define('HOME', __DIR__ );
+
+spl_autoload_register(function ($className) {
+    require_once HOME . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
+});
+
+require_once HOME . '/vendor/autoload.php';
+
+$app1 = App::getInstance();

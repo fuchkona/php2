@@ -43,7 +43,7 @@ $(function () {
         var $target = $(e.target);
         var $container = $target.closest('.products-item');
         var $id = $container.attr('id').match(/\d+/)[0];
-        goToUrl('/product/id/' + $id);
+        goToUrl('/good/id/' + $id);
     });
 
     $('.add-to-cart-btn').on('click', function (e) {

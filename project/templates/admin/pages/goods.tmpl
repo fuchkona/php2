@@ -1,0 +1,35 @@
+<div class="container">
+    <br>
+    <a class="btn btn-red" href="/admin/add-good"><span class="fa fa-plus"></span> Add new good</a>
+    {% if goods %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Photo</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Visits</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for good in goods %}
+                <tr>
+                    <td width="120" class="text-align-center"><a target="_blank" href="/good/id/{{ good.id }}"><img class="img-small" src="/images/dproducts/{{ good.img }}"></a></td>
+                    <td width="300" class="text-align-center"><a target="_blank" href="/good/id/{{ good.id }}"><h3>{{ good.title }}</h3></a></td>
+                    <td>{{ good.description }}</td>
+                    <td width="100" class="text-align-center">{{ good.price }} $</td>
+                    <td width="100" class="text-align-center">{{ good.visits }}</td>
+                    <td width="80" class="text-align-center">
+                        <a class="btn btn-white" href="/admin/edit-good/id/{{ good.id }}"><span class="fa fa-edit"></span></a>
+                        <a class="btn btn-red" href="#" data-type="btn-good-delete" data-id="{{ good.id }}"><span class="fa fa-times"></span></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h2>Here will be goods</h2>
+    {% endif %}
+</div>

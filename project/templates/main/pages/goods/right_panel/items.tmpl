@@ -1,0 +1,25 @@
+<div class="products-items">
+    {% for good in goods %}
+        <div id="{{ good.id }}" class="products-item">
+            <div class="products-item-hover">
+                <div>
+                    <button class="add-to-cart-btn">
+                        <img src="/images/cart-w.png" alt="">
+                        Add to Cart
+                    </button>
+                    <button class="products-item-refresh-btn">
+                        <span class="fa fa-retweet"></span>
+                    </button>
+                    <button class="products-item-love-btn">
+                        <span class="fa fa-heart-o"></span>
+                    </button>
+                </div>
+            </div>
+            <figure>
+                <img src="/images/dproducts/{{ good.img }}" alt="">
+                <figcaption class="products-item-title">{{ good.title }}</figcaption>
+            </figure>
+            <p class="products-item-price">${{ good.price }}</p>
+        </div>
+    {% endfor %}
+</div>
