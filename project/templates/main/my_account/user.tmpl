@@ -1,5 +1,5 @@
-<h3 class="text-title">Welcome <span class="first-letter-up">{{ authorized_user.name }}</span></h3>
-{% if authorized_user.isAdmin %}
+<h3 class="text-title">Welcome <span class="first-letter-up">{{ app_user.name }}</span></h3>
+{% if app_user.isAdmin %}
     <a class="btn btn-white btn-block" href="/admin">Admin Panel</a>
 {% endif %}
 <a class="btn btn-white btn-block" href="/profile">Go to profile</a>

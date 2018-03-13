@@ -35,7 +35,16 @@ abstract class Controller
 
     protected function render(array $extraProperties = [])
     {
-        $this->renderer->render(array_merge($this->settings->getAll(), $extraProperties));
+        if ($this->checkAccess()) {
+            $this->renderer->render(array_merge($this->settings->getAll(), $extraProperties));
+        } else {
+            throw new \Exception('You don\'t have enough permissions to visit this page!', 666);
+        }
+    }
+
+    protected function checkAccess()
+    {
+        return true;
     }
 
     public function error(int $code, $message)

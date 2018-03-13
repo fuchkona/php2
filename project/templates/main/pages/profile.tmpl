@@ -1,8 +1,18 @@
 <div class="container">
-    {% if authorized_user.id %}
-        <h2>Welcome back {{ authorized_user.name }}!</h2>
+    {% if app_user.id %}
+        <h2>Welcome back {{ app_user.name }}!</h2>
         <hr>
-        <p>Your login: {{ authorized_user.login }}</p>
+        <p>Your login: {{ app_user.login }}</p>
+        <hr>
+        <h3>Your sessions</h3>
+        {% for auth in auths %}
+            <p>
+                № {{ auth.id }} at {{ auth.time }}
+                {% if auth.isCurrent %}
+                    <span>Current</span>
+                {% endif %}
+            </p>
+        {% endfor %}
     {% else %}
         <h2>You need to login!</h2>
     {% endif %}

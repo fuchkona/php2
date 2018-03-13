@@ -9,11 +9,13 @@
 namespace app\controllers;
 
 
+use app\classes\App;
+use app\classes\AppUser;
 use app\components\interfaces\RendererInterface;
+use app\models\User;
 
 class AdminController extends Controller
 {
-
     protected $css_files = [
         '/css/normalize.css',
         '/css/main_new.css',
@@ -29,5 +31,11 @@ class AdminController extends Controller
     {
         $this->render();
     }
+
+    protected function checkAccess()
+    {
+        return AppUser::getInstance()->getUser()->isAdmin();
+    }
+
 
 }

@@ -23,10 +23,12 @@ class App
         $router = new Router();
         $controllerClass = 'app\\controllers\\' . $router->getLayout() . 'Controller';
         $action = 'action' . $router->getAction();
+        $settings = new Settings($router->getSettingsUri());
+        $settings->set('app_user', AppUser::getInstance()->getUser());
         /** @var Controller $controller */
         $controller = new $controllerClass(
             new TwigRender($router->getLayout(), $router->getAction()),
-            new Settings($router->getSettingsUri())
+            $settings
         );
         try {
             call_user_func([$controller, $action]);

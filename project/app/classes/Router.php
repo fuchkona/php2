@@ -56,7 +56,7 @@ class Router
      */
     public function getAction()
     {
-        return $this->action;
+        return str_replace('-', '_', $this->action);
     }
 
     /**

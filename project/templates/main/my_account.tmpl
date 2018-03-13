@@ -1,5 +1,5 @@
 <div id="my-account-panel" class="my-account-panel">
-    {% if authorized_user %}
+    {% if app_user %}
         {% include 'main/my_account/user.tmpl' %}
     {% else %}
         {% include 'main/my_account/guest.tmpl' %}
